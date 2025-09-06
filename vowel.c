@@ -9,7 +9,7 @@ int main()
         printf("the entered alphabet is a vowel");
     }
     else{
-        printf("the entered alphabet is not a vowel");
+        printf("the entered alphabet is a consonent");
     }
     return 0;
 }
