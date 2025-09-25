@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+    int matrix[3][3];
+    int rowsum[3]={0,0,0};
+    int colsum[3]={0,0,0};
+    printf("enter elements of the 3*3 matrix:\n");
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            printf("elements [%d][%d]",i,j);
+            scanf("%d",&matrix[i][j]);
+            
+        }
+    }
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            rowsum[i]+=matrix[i][j];
+            colsum[j]+=matrix[i][j];
+        }
+    }
+    printf("\nSum of each row:\n");
+    for(int i=0;i<3;i++){
+        printf("row %d sum:%d\n",i+1,rowsum[i]);
+    }
+    printf("\nSum of each coloumn:\n");
+    for(int j=0;j<3;j++){
+        printf("coloumn %d sum:%d\n",j+1,colsum[j]);
+    }
+    return 0;
+}
