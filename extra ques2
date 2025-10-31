@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main()
+{
+    FILE *fp, *fptr;
+    char ch;
+    fp = fopen("text1.txt", "w");
+    printf("Enter the contents of the file (end with ~):\n");
+    while ((ch = getchar()) != '~')
+    {
+        fputc(ch, fp);
+    }
+    fclose(fp);
+    fp = fopen("text1.txt", "r");
+    if (fp == NULL)
+    {
+        printf("File not found!");
+        return 1;
+    }
+
+    fptr = fopen("text2.txt", "w");
+    if (fptr == NULL)
+    {
+        printf("Cannot open destination file!");
+        fclose(fp);
+        return 1;
+    }
+
+    ch = fgetc(fp);
+    while (ch != EOF)
+    {
+        fputc(ch, fptr);
+        ch = fgetc(fp);
+    }
+
+    printf("File copied successfully.");
+
+    fclose(fp);
+    fclose(fptr);
+
+    return 0;
+}
